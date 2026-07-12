@@ -1,0 +1,19 @@
+# Virtual Environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Dataset
+*.csv
+*.parquet
+
+# IDE
+.vscode/
+
+# Environment
+.env
+
+# Logs
+logs/
