@@ -10,13 +10,19 @@ class RealtimeGenerator:
 
         self.generator = DUMGenerator()
 
+
+    def generate(self):
+
+        return self.generator.generate()
+
+
     def start(self):
 
         print("Realtime Generator Started...")
 
         while True:
 
-            declaration = self.generator.generate()
+            declaration = self.generate()
 
             print(declaration)
 

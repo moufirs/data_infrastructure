@@ -1,14 +1,29 @@
-import pandas as pd
-
 from app.ingestion.readers.csv_reader import CSVReader
+from app.datalake.bronze.bronze_writer import BronzeWriter
+from app.shared.logger import logger
+from app.quality.structural.validation_service import (
+    ValidationService,
+)
 
 
 class IngestionService:
 
-    def ingest_csv(self, csv_path):
+    def ingest_csv(self, path):
 
-        df = CSVReader.read(csv_path)
+        try:
 
-        print(f"{len(df)} lignes chargées.")
+            df = CSVReader.read(path)
 
-        return df
+            logger.info("CSV chargé")
+
+            df = ValidationService.validate(df)
+
+            BronzeWriter().write(df)
+
+            return df
+
+        except Exception:
+
+            logger.exception("Le pipeline d'ingestion a échoué")
+
+            raise

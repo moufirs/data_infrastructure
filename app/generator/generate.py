@@ -4,7 +4,7 @@ from app.generator.generators.realtime_generator import RealtimeGenerator
 from app.generator.exporters.csv_exporter import CSVExporter
 from app.generator.exporters.parquet_exporter import ParquetExporter
 
-from app.generator.config.settings import (
+from app.config.settings import (
     CSV_FILE,
     PARQUET_FILE,
     NUMBER_OF_RECORDS,

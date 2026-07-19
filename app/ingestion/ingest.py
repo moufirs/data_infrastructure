@@ -1,4 +1,4 @@
-from app.generator.config.settings import CSV_FILE
+from app.config.settings import CSV_FILE
 
 from app.ingestion.services.ingestion_service import (
     IngestionService,
